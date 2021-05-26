@@ -12,6 +12,12 @@ eDirection dir;
 
 void Setup() {
     gameOver = false;
+    dir = STOP;
+    x = width / 2;
+    y = heigh / 2;
+    fruitX = rand() % width;
+    fruitX = rand() % heigh;
+
 }
 
 void Draw() {
