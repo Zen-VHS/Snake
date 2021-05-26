@@ -20,7 +20,8 @@ void Setup() {
     x = width / 2 - 1;
     y = height / 2 - 1;
     fruitX = rand() % width;
-    fruitX = rand() % height;
+    fruitY = rand() % height;
+    score = 0;
 
 }
 
@@ -47,11 +48,12 @@ void Draw() {
     for (int i = 0; i < width + 1; i++) // рисует нижнюю границу
         cout << "#";
     cout << endl;
+    cout << "Score: " << score << endl; // счетчик очков
 }
 
 void Input() {
     if (_kbhit()) {
-        switch (_getch())
+        switch (_getch ())
         {
         case 'a':
             dir = LEFT;
@@ -87,6 +89,15 @@ void Logic() {
     case DOWN:
         y++;
         break;
+    }
+
+    if ( x > width || x < 0 || y > height || y < 0)
+        gameOver = true;
+
+    if (x == fruitX && y == fruitY) {
+        score += 10;
+        fruitX = rand() % width;
+        fruitY = rand() % height;
     }
 }
 
