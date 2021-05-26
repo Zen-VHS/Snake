@@ -21,7 +21,23 @@ void Setup() {
 }
 
 void Draw() {
+    system("cls"); // system ("clear");
+    for (int i = 0; i < width + 1; i++)
+        cout << "#";
+    cout << endl;
 
+    for (int i = 0; i < heigh; i++) {
+        for (int j = 0; j < width; j++) {
+            if (j == 0 || j == width - 1)
+                cout << "#";
+            cout << " ";
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < width + 1; i++)
+        cout << "#";
+    cout << endl;
 }
 
 void Input() {
